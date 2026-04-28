@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply antialiased bg-slate-950 text-slate-100;
+  }
+}
+
+@utility glass {
+  background-color: var(--color-white / 5%);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--color-white / 10%);
+  box-shadow: var(--shadow-2xl);
+}
+
+@utility glass-card {
+  border-radius: var(--radius-3xl);
+  padding: var(--spacing-8);
+  background-color: var(--color-white / 5%);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--color-white / 10%);
+  box-shadow: var(--shadow-2xl);
+  transition-property: all;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+  &:hover {
+    background-color: var(--color-white / 10%);
+  }
+}
+
+@utility mesh-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+@utility mesh-blob-1 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  border-radius: calc(infinity * 1px);
+  background-color: var(--color-indigo-600 / 20%);
+  filter: blur(130px);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@utility mesh-blob-2 {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  border-radius: calc(infinity * 1px);
+  background-color: var(--color-blue-600 / 15%);
+  filter: blur(150px);
+}
+
+@utility mesh-blob-3 {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  width: 400px;
+  height: 400px;
+  border-radius: calc(infinity * 1px);
+  background-color: var(--color-purple-600 / 15%);
+  filter: blur(120px);
+}
+
+/* Custom styles for markdown content in reports */
+.markdown-body {
+  @apply font-sans leading-relaxed text-sm text-slate-300;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  @apply font-sans font-bold text-white tracking-tight mt-6 mb-4;
+}
+.markdown-body p {
+  @apply mb-4 opacity-90;
+}
+.markdown-body ul, .markdown-body ol {
+  @apply mb-4 pl-5 list-disc;
+}
+.markdown-body li {
+  @apply mb-1;
+}
+.markdown-body strong {
+  @apply font-bold text-indigo-400;
+}
+
